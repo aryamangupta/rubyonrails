@@ -9,7 +9,6 @@ role :web, %w{deploy@example.com}
 role :db,  %w{deploy@example.com}
 
 set :stage, :production
-set :branch, "master"
 
 # Extended Server Syntax
 # ======================

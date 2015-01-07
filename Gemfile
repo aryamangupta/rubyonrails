@@ -13,6 +13,8 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
+gem 'haml'
+gem 'haml-rails'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -34,9 +36,9 @@ gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails'
 
 # Use Capistrano for deployment
-gem 'capistrano', '~> 3.1.0'
-gem 'capistrano-bundler', '~> 1.1.2'
-gem 'capistrano-rails', '~> 1.1.1'
+gem 'capistrano'
+gem 'capistrano-bundler'
+gem 'capistrano-rails'
 gem 'capistrano-rvm', github: "capistrano/rvm"
 
 group :development, :test do

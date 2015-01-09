@@ -31,13 +31,14 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Unicorn as the app server
 # gem 'unicorn'
 
-# Use Capistrano for deployment
-gem 'capistrano'
-gem 'capistrano-bundler'
-gem 'capistrano-rails'
-gem 'capistrano-rvm', github: "capistrano/rvm"
-
 group :development, :test do
+  # Use Capistrano for deployment
+  gem 'capistrano',         require: false
+  gem 'capistrano-rvm',     require: false
+  gem 'capistrano-rails',   require: false
+  gem 'capistrano-bundler', require: false
+  gem 'capistrano3-puma',   require: false
+
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   # gem 'byebug'
 

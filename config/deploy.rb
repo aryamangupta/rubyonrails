@@ -62,16 +62,15 @@ namespace :deploy do
   end
 
   desc 'Create Database'
-  task :create_db do
+  task :create_database do
     on roles(:app), in: :sequence, wait: 5 do
       within release_path do
-        on :deploy do
-          with rails_env: :production do
-            execute :rake, db:create, "RAILS_ENV=production"
-          end
+        with(rails_env: fetch(:rails_env)) do
+          execute :rake, 'db:create', 'RAILS_ENV=production'
         end
       end
     end
+
   end
 
   desc 'Initial Deploy'
@@ -90,7 +89,7 @@ namespace :deploy do
   end
 
   before :starting,     :check_revision
-  before :starting,     :create_db
+  before :starting,     :create_database
   after  :finishing,    :compile_assets
   after  :finishing,    :cleanup
   after  :finishing,    :restart

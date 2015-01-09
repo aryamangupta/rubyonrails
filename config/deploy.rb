@@ -63,9 +63,13 @@ namespace :deploy do
 
   desc 'Create Database'
   task :create_db do
-    on roles(:app) do
-      with rails_env: :production do
-        execute :rake, db:create, "RAILS_ENV=production"
+    on roles(:app), in: :sequence, wait: 5 do
+      within release_path do
+        on :deploy do
+          with rails_env: :production do
+            execute :rake, db:create, "RAILS_ENV=production"
+          end
+        end
       end
     end
   end

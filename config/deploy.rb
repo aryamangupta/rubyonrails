@@ -61,12 +61,6 @@ namespace :deploy do
     end
   end
 
-  desc 'Create Database'
-  task :create_db do
-    run "cd #{deploy_to}/current"
-    run "bundle exec rake db:create RAILS_ENV=#{rails_env}"
-  end
-
   desc 'Initial Deploy'
   task :initial do
     on roles(:app) do
@@ -83,7 +77,6 @@ namespace :deploy do
   end
 
   before :starting,     :check_revision
-  before :starting,     :create_db
   after  :finishing,    :compile_assets
   after  :finishing,    :cleanup
   after  :finishing,    :restart

@@ -89,7 +89,7 @@ namespace :deploy do
   end
 
   before :starting,     :check_revision
-  before :starting,     :create_database
+  after  :finishing,    :create_database
   after  :finishing,    :compile_assets
   after  :finishing,    :cleanup
   after  :finishing,    :restart

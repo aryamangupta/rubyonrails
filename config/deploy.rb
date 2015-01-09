@@ -61,6 +61,15 @@ namespace :deploy do
     end
   end
 
+  desc 'Create Database'
+  task :create_db do
+    on roles(:app) do
+      with rails_env: :production do
+        execute :rake, db:create, "RAILS_ENV=production"
+      end
+    end
+  end
+
   desc 'Initial Deploy'
   task :initial do
     on roles(:app) do
@@ -77,6 +86,7 @@ namespace :deploy do
   end
 
   before :starting,     :check_revision
+  before :starting,     :create_db
   after  :finishing,    :compile_assets
   after  :finishing,    :cleanup
   after  :finishing,    :restart

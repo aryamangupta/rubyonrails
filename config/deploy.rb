@@ -70,7 +70,6 @@ namespace :deploy do
         end
       end
     end
-
   end
 
   desc 'Initial Deploy'
@@ -89,7 +88,7 @@ namespace :deploy do
   end
 
   before :starting,     :check_revision
-  after  :finishing,    :create_database
+  before :finishing,    :create_database
   after  :finishing,    :compile_assets
   after  :finishing,    :cleanup
   after  :finishing,    :restart

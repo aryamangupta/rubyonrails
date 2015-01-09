@@ -1,7 +1,7 @@
 # config valid only for Capistrano 3.1
 lock '3.3.5'
 
-server '54.148.84.141', port: 7171, roles: [:web, :app, :db], primary: true
+server '54.148.84.141', port: 22, roles: [:web, :app, :db], primary: true
 
 set :application, 'smartpaddle_app'
 set :repo_url, 'git@bitbucket.org:pranav7/smartpaddle-ruby.git' 

@@ -49,6 +49,17 @@ namespace :puma do
   before :start, :make_dirs
 end
 
+namespace :rake do
+  namespace :db do
+    %w[create migrate reset rollback seed setup].each do |command|
+      desc "Rake db:#{command}"
+      task command, roles: :app, except: {no_release: true} do
+        run "cd #{deploy_to}/current"
+        run "bundle exec rake db:#{ENV['task']} RAILS_ENV=#{rails_env}"
+    end
+  end
+end
+
 namespace :deploy do
   desc "Make sure local git is in sync with remote."
   task :check_revision do

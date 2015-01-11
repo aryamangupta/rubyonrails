@@ -21,7 +21,7 @@ set :forward_agent, true
 set :unicorn_pid, "#{deploy_to}/shared/pids/unicorn.pid"
 
 # For system-wide RVM install.
-set :rvm_path, '/usr/local/rvm/bin/rvm'
+# set :rvm_path, '/usr/local/rvm/bin/rvm'
 
 # Manually create these paths in shared/ (eg: shared/config/database.yml) in your server.
 # They will be linked in the 'deploy:link_shared_paths' step.
@@ -43,7 +43,7 @@ echo "-----> Loading environment"
 }
 
   # For those using RVM, use this to load an RVM version@gemset.
-  invoke :'rvm:use[ruby-2.2.0@default]'
+  invoke :'rvm:use[ruby-2.2.0]'
 end
 
 # Put any custom mkdir's in here for when `mina setup` is ran.

@@ -14,7 +14,7 @@ require 'mina/unicorn'
 set :domain, '54.148.84.141'
 set :deploy_to, '/home/rails/apps/smartpaddle_app'
 set :repository, 'git@bitbucket.org:pranav7/smartpaddle-ruby.git'
-set :branch, 'f15fc446e' 
+set :branch, 'unicorn-setup' 
 set :user, 'rails'
 set :port, '22'
 set :forward_agent, true

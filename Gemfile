@@ -34,6 +34,7 @@ gem 'unicorn'
 # Using MINA for deployment
 gem 'mina'
 gem 'mina-unicorn', require: false
+gem 'mina-slack', require: false
 
 #Bootstrap gem
 gem 'bootstrap-sass', '~> 3.2.0'

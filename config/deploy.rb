@@ -3,6 +3,7 @@ require 'mina/rails'
 require 'mina/git'
 require 'mina/rvm'    # for rvm support. (http://rvm.io)
 require 'mina/unicorn'
+require 'mina/slack'
 # require 'mina/rbenv'  # for rbenv support. (http://rbenv.org)
 
 # Basic settings:
@@ -30,6 +31,15 @@ set :shared_paths, ['config/database.yml', 'log']
 # Optional settings:
 #   set :port, '30000'     # SSH port number.
 #   set :forward_agent, true     # SSH forward_agent.
+
+# Notify Slack Setup
+set :slack_token, "T039RJGCW/B03B97Z68/S1Ok90osMwfYZzuSSYKO0RqL" # comes from inbound webhook integration
+set :slack_room, "#dev" # the room to send the message to
+set :slack_subdomain, "smartpaddle" # if your subdomain is example.slack.com
+
+set :slack_application, "Mina" # override Capistrano `application`
+set :slack_username, "Mina" # displayed as name of message sender
+set :slack_emoji, ":rocket:" # will be used as the avatar for the message
 
 # This task is the environment that is loaded for most commands, such as
 # `mina deploy` or `mina rake`.

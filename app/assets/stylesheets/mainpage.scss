@@ -1,0 +1,274 @@
+// Place all the styles related to the mainpage controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+//Use google font for all elements in the body
+
+$site-green: #5cb85c;
+$site-red: #e11931;
+$brand-back: #273244;
+$category-grey: #8a8c8e;
+$footer-black: #3d4351;
+$site-blue: #358efb;
+$footer-grey: #7a859e;
+
+body{
+	font-family: 'Montserrat', sans-serif !important;
+	font-weight: 400;
+}
+
+#topHeader{
+	
+	.navbar-default{
+		background-color: white;
+		border-bottom: #dcdede solid 1px;
+		box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
+		margin-bottom: 0px !important;
+	}
+
+	a{
+		text-decoration: none;
+		font-size: 10pt;
+		color: $category-grey;
+
+		&:hover {
+			color: $site-red;
+		}
+	}
+	.navbar-brand{
+		font-weight: 700 !important;
+		color: $brand-back;
+		font-size: 16pt;
+
+		&:hover {
+			color: $brand-back;
+		}
+	}
+
+	
+	@media (min-width: 775px){
+		.smallscreen{
+			display:none;
+		}
+
+		#cartLoginContainer{
+			display: block;
+		}
+	}
+
+	@media (max-width: 775px){
+		.smallscreen{
+			display:block;
+		}
+		#cartLoginContainer{
+			display: none;
+		}
+	}
+
+
+#cartLoginContainer{
+
+		position:absolute;
+		top: 0px;
+		right: 15px;
+
+		#login{
+			margin-top:15px;
+			margin-left:15px;
+			float:right;
+
+			&:hover {
+				color: $site-red;
+				cursor:pointer;
+			}
+		}
+
+
+		#cart{
+			float:left;
+			width: 90px;
+			height: 65px;
+			color: white;
+			background-color: $site-red;
+			border-bottom-left-radius: 4px;
+			border-bottom-right-radius: 4px;
+			text-align: center;
+			cursor: pointer;
+
+			#carticon{
+				font-size: 1.2em;
+				float:left;
+			}
+
+			#carttext{
+				font-size: 10pt;
+				float:left;
+				padding-left:8px;
+			}
+
+			#carticontext{
+				padding:18px;
+				padding-top:5px;
+			}
+
+			#circle{
+				border-radius: 50%;
+				width:20px;
+				height:20px;
+				text-align:center;
+				background-color: white;
+				color: $site-red;
+				margin-left:36px;
+				margin-right:36px;
+				margin-top:10px;
+			}
+
+		}
+	}
+	
+}
+
+#searchContainer{
+	height: 92vh;
+	width:100%;
+	background-image: image-url('connecting.jpg');
+	background-size: 100% 92vh;
+	//background: url(asset-path('back.jpg'));
+	//background-color: #4cd2da;
+	//background-image: -webkit-linear-gradient(38deg, #4cd2da, #4cd2da 50%, #5adae2 50%, #5adae2 100%);
+	//background-color: rgba(255, 255, 255, 0.5);
+	padding-top:5%;
+	text-align:center;
+	font-family: 'Montserrat', sans-serif !important;
+
+	h2{
+			margin-top:10px;
+			margin-bottom:40px;
+			font-size: 20pt;
+			//color: white;
+			//font-family: 'Open Sans', sans-serif;
+			//font-weight: 300;
+		}
+
+	#coloredContainer{
+
+		background: rgba(255,255,255,0.3);
+		padding: 15px !important;
+		border: 1px solid rgba(0,0,0,0.14);
+		border-radius: 4px;
+
+		.btn-search, .btn-search:hover{
+
+			color: white;
+			background-color: $site-red;
+			border-color: $site-red;
+			padding: 7px 16px;
+			font-size: 15pt;
+			border-radius: 0px !important;
+		}
+		input{
+			height: 44px !important;
+			font-size: 10pt;
+			border-radius: 0px;
+			&:focus{
+				box-shadow: none;
+				border-color: $site-red;
+			}
+		}
+
+		.btn-register, .btn-register:focus{
+			
+			border-radius: 2px;
+			padding: 10px;
+			font-size: 10pt;
+			background-color: $site-blue;
+			border-color: $site-blue;
+			margin-top: 10px;
+			margin-bottom: 0px;
+			border-radius: 0px !important;
+		}
+
+	}
+}
+
+#footer{
+	background-color: $footer-black;
+	padding-top: 60px;
+	padding-bottom: 30px;
+	width:100%;
+	color:white;
+
+	#optionsContainer{
+
+		float:left;
+
+		ul{
+			display: block;
+			list-style-type: disc;
+			width:70%;
+
+			li{
+				display: inline-block;
+				width: 40%;
+				text-align: left;
+				padding-top: 5px;
+				padding-right: 10px;
+				padding-bottom:5px;
+
+				a{
+					font-size: 13px;
+					line-height: 1.91667;
+					color: $footer-grey;
+
+					&:hover{
+						color:white;
+						text-decoration:none;
+					}
+				}
+			}
+		}
+
+		#copyright{
+			font-size: 10pt;
+			margin-left:40px;
+			color: $footer-grey;
+			font-family: 'Open Sans', sans-serif;
+			font-weight: 300;
+			margin-top:40px;
+		}
+	}
+
+	#subscribe{
+
+		float:right;
+		width: 30%;
+
+		h5{
+			margin-top:0px;
+			margin-bottom:30px;
+		}
+
+		input{
+			height: 44px !important;
+			font-size: 10pt;
+			border-radius: 0px;
+			&:focus{
+				box-shadow: none;
+				border-color: $site-red;
+			}
+		}
+
+		.btn-subscribe, .btn-subscribe:focus, .btn-subscribe:hover{
+			
+			border-radius: 2px;
+			padding: 12px;
+			font-size: 10pt;
+			background-color: $site-red;
+			border-color: $site-red;
+			border-radius: 0px !important;
+			color:white !important;
+		}
+	}
+
+
+}

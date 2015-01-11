@@ -29,8 +29,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'bcrypt', '~> 3.1.7'
 
 # Use Unicorn as the app server
-# gem 'unicorn'
-gem 'puma'
+gem 'unicorn'
 
 group :development, :test do
   # Use Capistrano for deployment

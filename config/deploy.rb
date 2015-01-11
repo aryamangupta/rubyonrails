@@ -14,17 +14,11 @@ require 'mina/unicorn'
 set :domain, '54.148.84.141'
 set :deploy_to, '/home/rails/apps/smartpaddle_app'
 set :repository, 'git@bitbucket.org:pranav7/smartpaddle-ruby.git'
-set :branch, current_git_branch
+set :branch, 'f15fc446e' 
 set :user, 'rails'
 set :port, '22'
 set :forward_agent, true
 set :unicorn_pid, "#{deploy_to}/shared/pids/unicorn.pid"
-
-def current_git_branch
-  branch = `git symbolic-ref HEAD 2> /dev/null`.strip.gsub(/^refs\/heads\//, '')
-  puts "Deploying branch #{red branch}"
-  branch
-end
 
 # For system-wide RVM install.
 # set :rvm_path, '/usr/local/rvm/bin/rvm'

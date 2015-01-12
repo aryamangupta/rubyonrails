@@ -1,28 +1,34 @@
 #footer
   .navbar-static-bottom
-    .container-fluid
-      #optionsContainer
-        %ul
-          %li
-            %a{href: "#"} ABOUT US
-          %li
-            %a{href: "#"} CONTACT
-          %li
-            %a{href: "#"} LEGAL
-          %li
-            %a{href: "#"} BLOG
-          %li
-            %a{href: "#"} HELP & SUPPORT
-          %li
-            %a{href: "#"} TEAM
-          %li
-            %a{href: "#"} FAQ
-          %li
-            %a{href: "#"} PAYMENTS
-        #copyright Copyright @2014 SmartPaddle. All rights reserved
-      #subscribe
-        %h5 SUBSCRIBE FOR LATEST INFORMATION
-        .input-group
-          %input.form-control{:type=>'search',:placeholder=>'Email Address..'}
-            %span.input-group-btn
-              %button.btn.btn-subscribe{:type=>'button'} Subscribe
+    .container
+      .row
+        .col-lg-2
+          %ul
+            %li
+              %a{href: "#"} ABOUT US
+            %li
+              %a{href: "#"} CONTACT
+            %li
+              %a{href: "#"} LEGAL
+            %li
+              %a{href: "#"} BLOG
+        .col-lg-2
+          %ul    
+            %li
+              %a{href: "#"} HELP & SUPPORT
+            %li
+              %a{href: "#"} TEAM
+            %li
+              %a{href: "#"} FAQ
+            %li
+              %a{href: "#"} PAYMENTS
+        .col-lg-4.col-lg-offset-4
+          #subscribe
+            %h5 SUBSCRIBE FOR LATEST INFORMATION
+            .input-group
+              %input.form-control{:type=>'search',:placeholder=>'Email Address..'}
+              %span.input-group-btn
+                %button.btn.btn-subscribe{:type=>'button'} Subscribe
+      .row
+        .col-lg-12
+          #copyright Copyright @2014 SmartPaddle. All rights reserved

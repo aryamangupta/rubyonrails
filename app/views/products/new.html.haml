@@ -1,0 +1,10 @@
+= render :partial => "/header"
+
+#addProduct
+  =form_for :product, url: products_path do |f|
+    .form-group
+      =text_field_tag(:q, class: "")
+    .form-group
+      %button{}
+
+= render :partial =>"/footer"

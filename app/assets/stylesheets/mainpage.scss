@@ -12,6 +12,7 @@ $footer-black: #3d4351;
 $site-blue: #358efb;
 $footer-grey: #7a859e;
 
+
 body{
 	font-family: 'Montserrat', sans-serif !important;
 	font-weight: 400;
@@ -66,8 +67,7 @@ body{
 	}
 
 
-#cartLoginContainer{
-
+	#cartLoginContainer{
 		position:absolute;
 		top: 0px;
 		right: 15px;
@@ -126,6 +126,83 @@ body{
 		}
 	}
 	
+}
+
+#footer{
+
+	background-color: $footer-black;
+	padding-top: 60px;
+	padding-bottom: 30px;
+	width:100%;
+	color:white;
+
+
+		ul{
+			padding-left: 0px;
+			list-style-type: none;
+
+			li{
+				text-align: left;
+				padding-top: 5px;
+				padding-right: 10px;
+				padding-bottom:5px;
+
+				a{
+					font-size: 13px;
+					line-height: 1.91667;
+					color: $footer-grey;
+
+					&:hover{
+						color:white;
+						text-decoration:none;
+					}
+				}
+			}
+		}
+
+	#copyright{
+		font-size: 10pt;
+		color: $footer-grey;
+		font-family: 'Open Sans', sans-serif;
+		font-weight: 300;
+		margin-top:20px;
+		}
+
+	#subscribe{
+
+		h5{
+			margin-top:0px;
+			margin-bottom:30px;
+		}
+
+		@media (max-width: 1200px){
+			h5{
+				margin-top:20px;
+			}
+		}
+
+		input{
+			height: 44px !important;
+			font-size: 10pt;
+			border-radius: 0px;
+			&:focus{
+				box-shadow: none;
+				border-color: $site-red;
+			}
+		}
+
+		.btn-subscribe, .btn-subscribe:focus, .btn-subscribe:hover{
+			
+			border-radius: 2px;
+			padding: 12px;
+			font-size: 10pt;
+			background-color: $site-red;
+			border-color: $site-red;
+			border-radius: 0px !important;
+			color:white !important;
+		}
+	}
+
 }
 
 #searchContainer{
@@ -191,84 +268,4 @@ body{
 	}
 }
 
-#footer{
-	background-color: $footer-black;
-	padding-top: 60px;
-	padding-bottom: 30px;
-	width:100%;
-	color:white;
 
-	#optionsContainer{
-
-		float:left;
-
-		ul{
-			display: block;
-			list-style-type: disc;
-			width:70%;
-
-			li{
-				display: inline-block;
-				width: 40%;
-				text-align: left;
-				padding-top: 5px;
-				padding-right: 10px;
-				padding-bottom:5px;
-
-				a{
-					font-size: 13px;
-					line-height: 1.91667;
-					color: $footer-grey;
-
-					&:hover{
-						color:white;
-						text-decoration:none;
-					}
-				}
-			}
-		}
-
-		#copyright{
-			font-size: 10pt;
-			margin-left:40px;
-			color: $footer-grey;
-			font-family: 'Open Sans', sans-serif;
-			font-weight: 300;
-			margin-top:40px;
-		}
-	}
-
-	#subscribe{
-
-		float:right;
-		width: 30%;
-
-		h5{
-			margin-top:0px;
-			margin-bottom:30px;
-		}
-
-		input{
-			height: 44px !important;
-			font-size: 10pt;
-			border-radius: 0px;
-			&:focus{
-				box-shadow: none;
-				border-color: $site-red;
-			}
-		}
-
-		.btn-subscribe, .btn-subscribe:focus, .btn-subscribe:hover{
-			
-			border-radius: 2px;
-			padding: 12px;
-			font-size: 10pt;
-			background-color: $site-red;
-			border-color: $site-red;
-			border-radius: 0px !important;
-			color:white !important;
-		}
-	}
-
-
-}

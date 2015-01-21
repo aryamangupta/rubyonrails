@@ -2,8 +2,71 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+$site-green: #5cb85c;
+$category-grey: #8a8c8e;
+
 #addProduct{
 	min-height: 400px;
-	text-align:center;
-	margin-top: 7%;
+	font-family: 'Montserrat', sans-serif !important;
+	font-weight: 400;
+
+	.drop-area{
+	  width:200px;
+	  height:200px;
+	  background-color: #F2F1EF;
+	  text-align: center;
+	  cursor:pointer;
+	  display: table-cell;
+	  vertical-align: middle;
+	}
+
+
+	#addPicture{
+		font-size:32pt;
+		color: #BDC3C7;
+	}
+		
+	#ProductTitle{
+		margin-top:30px;
+		margin-bottom: 30px;
+	}
+
+	.setionHeadings{
+		margin-top: 20px;
+		margin-bottom:20px;
+	}
+
+	.form-group{
+		width: 50% !important;
+	}
+
+	@media screen and (max-width: 1200px) {
+    	.bottomMargin{
+    		margin-bottom: 10px;
+    	}
+    	.form-group{
+			width: 100% !important;
+		}
+
+	}
+
+	#addDetail{
+		font-size:12pt;
+	}
+
+	.Information{
+		font-size: 14pt;
+		float:left;
+		padding-top:5px;
+		color: $site-green;
+
+	}
+
+	#addField{
+		margin-top: 20px;
+		margin-bottom: 20px;
+		cursor: pointer;
+		color: $category-grey;
+	}
+
 }

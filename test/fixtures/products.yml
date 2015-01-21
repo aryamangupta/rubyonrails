@@ -1,0 +1,35 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ProductName: MyText
+  ProductKeyword: MyText
+  ProductCategoryId: 1
+  ProductSubCategory: 1
+  ProductCategorization: 1
+  ModelNo: MyText
+  BrandName: MyText
+  MoreDetails: MyText
+  MinimumOrder: MyText
+  SupplyAbility: MyText
+  QuotedPrice: MyText
+  PaymentTerms: MyText
+  DeliveryTime: MyText
+  PackagingDetails: MyText
+  DetailedDesciption: MyText
+
+two:
+  ProductName: MyText
+  ProductKeyword: MyText
+  ProductCategoryId: 1
+  ProductSubCategory: 1
+  ProductCategorization: 1
+  ModelNo: MyText
+  BrandName: MyText
+  MoreDetails: MyText
+  MinimumOrder: MyText
+  SupplyAbility: MyText
+  QuotedPrice: MyText
+  PaymentTerms: MyText
+  DeliveryTime: MyText
+  PackagingDetails: MyText
+  DetailedDesciption: MyText

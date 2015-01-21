@@ -1,10 +1,72 @@
 = render :partial => "/header"
 
 #addProduct
-  =form_for :product, url: products_path do |f|
-    .form-group
-      =text_field_tag(:q, class: "")
-    .form-group
-      %button{}
+  .container
+    %h3#ProductTitle Add Product
+
+    //%hr.featurette-divider
+    //%h5.setionHeadings Product Pictures
+
+    =form_for :product, url: products_path, :html => {:multipart => true} do |f|
+      .form-group
+        = f.file_field :image, style: 'display:none'
+        #upload.drop-area
+          %span.glyphicon.glyphicon-camera#addPicture{:aria=>{:hidden => 'true'}}
+      %h4.setionHeadings Basic Product Information
+      .form-group
+        .row
+          .col-sm-11
+            = f.text_field :ProductName, class: 'form-control', placeholder: 'Product Name'
+          .col-sm-1
+            %span.glyphicon.glyphicon-info-sign.Information#pName{:aria=>{:hidden => 'true'}}
+      .form-group
+        .row
+          .col-sm-11
+            = f.text_field :ProductKeyword, class: 'form-control', placeholder: 'Product Keyword'
+          .col-sm-1
+            %span.glyphicon.glyphicon-info-sign.Information#pKeyword{:aria=>{:hidden => 'true'}}
+      .form-group
+        = select_tag(:ProductCategoryId, options_for_select([['Select Product Category', 0], ['Chemicals', 1]], 0),{ :class => 'form-control' })
+      .form-group
+        = select_tag(:ProductSubCategory, options_for_select([['Select Product SubCategory', 0], ['Agro Chemical', 1]], 0),{ :class => 'form-control' })
+      .form-group
+        = select_tag(:ProductCategorization, options_for_select([['Select Product Categorization', 0], ['Fertilizer', 1]], 0),{ :class => 'form-control' })
+      %hr.featurette-divider
+      %h4.setionHeadings Product Specifications
+      .form-group
+        = f.text_field :ModelNo, class: 'form-control', placeholder: 'Model Number'
+      .form-group
+        = f.text_field :BrandName, class: 'form-control', placeholder: 'BrandName'
+      .form-group
+        = hidden_field_tag :moredetailsno,0
+      #moreDetails
+        #fields
+        #addField
+          %span.glyphicon.glyphicon-plus#addDetail{:aria=>{:hidden => 'true'}}
+          %span Add
+      %hr.featurette-divider
+      %h4.setionHeadings Logitics
+      .form-group
+        = f.text_field :MinimumOrder, class: 'form-control', placeholder: 'Minimum Order Quantity'
+      .form-group
+        = f.text_field :SupplyAbility, class: 'form-control', placeholder: 'SupplyAbility'
+      .form-group
+        = f.text_field :QuotedPrice, class: 'form-control', placeholder: 'Quoted Price per Item/Quantity'
+      .form-group
+        = f.text_area :PaymentTerms, class: 'form-control', placeholder: 'Payment Terms'
+      .form-group
+        = f.text_field :DeliveryTime, class: 'form-control', placeholder: 'Delivery Time'
+      .form-group
+        = f.text_area :PackagingDetails, class: 'form-control', placeholder: 'Packaging Details'
+      %hr.featurette-divider
+      %h4.setionHeadings Detailed Description
+      .form-group
+        = f.text_area :DetailedDesciption, class: 'form-control', rows: '5', placeholder: 'Include any specific details about your product here'
+      .form-group
+        = check_box_tag :terms
+        %span I agree to smartpaddle listing terms
+      .form-group
+        %button.btn.btn-success{:type=>'submit'} Submit
+
 
 = render :partial =>"/footer"

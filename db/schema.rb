@@ -11,9 +11,42 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20150121155845) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "pictures", force: :cascade do |t|
+    t.text     "caption"
+    t.integer  "product_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "image"
+  end
+
+  add_index "pictures", ["product_id"], name: "index_pictures_on_product_id", using: :btree
+
+  create_table "products", force: :cascade do |t|
+    t.text     "ProductName"
+    t.text     "ProductKeyword"
+    t.integer  "ProductCategoryId"
+    t.integer  "ProductSubCategory"
+    t.integer  "ProductCategorization"
+    t.text     "ModelNo"
+    t.text     "BrandName"
+    t.text     "MoreDetails"
+    t.text     "MinimumOrder"
+    t.text     "SupplyAbility"
+    t.text     "QuotedPrice"
+    t.text     "PaymentTerms"
+    t.text     "DeliveryTime"
+    t.text     "PackagingDetails"
+    t.text     "DetailedDesciption"
+    t.text     "Approved"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+    t.string   "image"
+  end
+
+  add_foreign_key "pictures", "products"
 end

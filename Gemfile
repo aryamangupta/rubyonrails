@@ -16,6 +16,9 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'haml'
 gem 'haml-rails'
 
+#database cleaner
+gem 'database_cleaner'
+
 #for uploading images
 gem 'carrierwave'
 gem 'rmagick'

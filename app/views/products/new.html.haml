@@ -8,10 +8,22 @@
     //%h5.setionHeadings Product Pictures
 
     =form_for :product, url: products_path, :html => {:multipart => true} do |f|
-      .form-group
-        = f.file_field :image, style: 'display:none'
-        #upload.drop-area
-          %span.glyphicon.glyphicon-camera#addPicture{:aria=>{:hidden => 'true'}}
+      .row
+        .col-lg-3
+          = f.fields_for :pictures do |p|
+            = p.file_field :image, style: 'display:none'
+            #upload.drop-area
+              %span.glyphicon.glyphicon-camera#addPicture{:aria=>{:hidden => 'true'}}
+        .col-lg-3
+          = f.fields_for :pictures do |p|
+            = p.file_field :image1, style: 'display:none'
+            #upload1.drop-area
+              %span.glyphicon.glyphicon-camera#addPicture{:aria=>{:hidden => 'true'}}
+        .col-lg-3
+          = f.fields_for :pictures do |p|
+            = p.file_field :image2, style: 'display:none'
+            #upload2.drop-area
+              %span.glyphicon.glyphicon-camera#addPicture{:aria=>{:hidden => 'true'}}
       %h4.setionHeadings Basic Product Information
       .form-group
         .row

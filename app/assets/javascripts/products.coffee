@@ -43,8 +43,12 @@ $ ->
     true
 
 $ ->
-  fileDiv = document.getElementById("upload");
-  fileInput = document.getElementById("product_image");
+  setUpPictures("product_pictures_image","upload","upload")
+  setUpPictures("product_pictures_image1","upload1","upload1")
+  setUpPictures("product_pictures_image2","upload2","upload2")
+setUpPictures=(fileinputname,fileDivname,thumbname) ->
+  fileDiv = document.getElementById(fileDivname);
+  fileInput = document.getElementById(fileinputname);
   fileInput.addEventListener("change",(e)->
     files = this.files
     showThumbnail(files)
@@ -81,9 +85,9 @@ $ ->
       if(!file.type.match(imageType))
         continue
     image = document.createElement("img");
-    thumbnail = document.getElementById("upload");
+    thumbnail = document.getElementById(thumbname);
     thumbnail.removeChild(thumbnail.firstChild);
-    $('#upload').empty();
+    $('#'+fileDivname).empty();
     image.file = file;
     
 
@@ -118,7 +122,7 @@ $ ->
       ctx.drawImage(imageObj, xStart, yStart, renderableWidth, renderableHeight);
       image.width=renderableWidth;
       image.height=renderableHeight;
-      $('#upload').css('background-color','#fff');
+      $('#'+fileDivname).css('background-color','#fff');
       thumbnail.appendChild(image)
 
 

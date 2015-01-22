@@ -1,31 +1,30 @@
 class ProductsController < ApplicationController
 	def new
-  	end
+  end
 
-  	def create
+  def create
 
-  		$moredetails = "de"
+  	$moredetails = "de"
 
-  		$i = 1
-  		$num = params[:moredetailsno].to_i
+  	$i = 1
+  	$num = params[:moredetailsno].to_i
 
 
-  		while $i <= $num  do
+  	while $i <= $num  do
+  		$tempname = params["Fieldname"+$i.to_s]
+  		$tempcontent = params["Fieldcontent"+$i.to_s]
 
-  		   $tempname = params["Fieldname"+$i.to_s]
-  		   $tempcontent = params["Fieldcontent"+$i.to_s]
-
-  		   if($tempname!=nil)
+  		if($tempname!=nil)
 		   	if($i==1)
 		   		$moredetails = $moredetails + $tempname + "^" + $tempcontent
 		   	else
 		   		$moredetails = $moredetails + "~" +$tempname + "^" + $tempcontent 
 		   	end
-		   end
-		   $i +=1
+		  end
+		  $i +=1
 		end
 
-  		@product = Product.new( :ProductName => params[:product][:ProductName],
+  	@product = Product.new( :ProductName => params[:product][:ProductName],
       							:ProductKeyword => params[:product][:ProductKeyword],
       							:ProductCategoryId => params[:ProductCategoryId],
       							:ProductSubCategory => params[:ProductSubCategory],
@@ -40,10 +39,19 @@ class ProductsController < ApplicationController
       							:DeliveryTime => params[:product][:DeliveryTime],
       							:PackagingDetails => params[:product][:PackagingDetails],
       							:DetailedDesciption => params[:product][:DetailedDesciption],
-      							:Approved => "true")
+      							:Approved => "false")
 
-  		@product.image = params[:product][:image]
-  		@product.save
+
+      @product.save
+      @product.pictures.create(:caption => "",
+                        :image => params[:product][:pictures][:image])
+
+      @product.pictures.create(:caption => "",
+                        :image => params[:product][:pictures][:image1])
+
+      @product.pictures.create(:caption => "",
+                        :image => params[:product][:pictures][:image2])
+
   		redirect_to @product
-  	end
+  end
 end

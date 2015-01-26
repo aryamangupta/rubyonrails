@@ -1,0 +1,19 @@
+= render :partial => "/header"
+
+#Profile.container
+  .row
+    .col-lg-1.removeLeftPadding.removeRightPadding
+      = render :partial => "/sideMenu"
+    .col-lg-11
+      - @products.each do |product|
+        .card
+          .row
+            .col-sm-2
+              =image_tag product.pictures[0].image_url(:thumb_medium).to_s
+            .col-sm-10
+              .row
+                = link_to product.ProductName, product_path(product.id), class: "cardTitle"
+              .row
+                .col-sm
+
+= render :partial =>"/footer"	

@@ -37,10 +37,63 @@
         .col-sm-4.field
           %button.btn.btn-success.btn-product
             %span.glyphicon.glyphicon-file{:aria=>{:hidden => 'true'}} 
-            &nbsp;&nbsp;Get Quotation
+            &nbsp;&nbsp;Request Quotation
         .col-sm-4.field
           %button.btn.btn-success.btn-product 
-            %span.glyphicon.glyphicon-envelope{:aria=>{:hidden => 'true'}} 
-            &nbsp;&nbsp;Contact Supplier
+            %span.glyphicon.glyphicon-inbox{:aria=>{:hidden => 'true'}} 
+            &nbsp;&nbsp;Request Sample
+      .row
+        .col-sm-4.field
+          =link_to "#" do
+            %span.glyphicon.glyphicon-shopping-cart{:aria=>{:hidden => 'true'}}
+            &nbsp;Add to cart
+  .row#detailSection
+    .col-lg-10#bottomCategoryLine.removeLeftPadding
+      .categoryLabel.active#product
+        Product Details
+      .categoryLabel.addLeftMargin#company
+        Company Profile
+  .row#descriptionContent
+    .col-lg-10.removeLeftPadding
+      .fieldTitle Product Specifications
+      .row.removeLeftMargin
+        .col-sm-2.field.fieldLabel
+          Classification:
+        .col-sm-2.field.fieldValue
+          = @product.ProductCategorization
+        .col-sm-2.field.fieldLabel
+          Model No:
+        .col-sm-2.field.fieldValue
+          = @product.ModelNo
+      .row.removeLeftMargin
+        .col-sm-2.field.fieldLabel
+          Brand Name:
+        .col-sm-2.field.fieldValue
+          = @product.BrandName
+      .bottomLine
+      .fieldTitle Logistics
+      .row.removeLeftMargin
+        .col-sm-2.field.fieldLabel
+          Packaging Details:
+        .col-sm-5.field.fieldValue
+          = @product.PackagingDetails
+      .row.removeLeftMargin
+        .col-sm-2.field.fieldLabel
+          Delivery Details:
+        .col-sm-5.field.fieldValue
+          = @product.DeliveryTime
+      .bottomLine
+      .fieldTitle Detailed Description
+      .row.removeLeftMargin
+        .col-sm-2.field.fieldLabel
+          Description:
+        .col-sm-5.field.fieldValue
+          = @product.DetailedDesciption
+  .row#descriptionCompanyProfile
+    .col-lg-10.removeLeftPadding
+      .fieldTitle Company Details
+
+
+
             
 = render :partial =>"/footer"

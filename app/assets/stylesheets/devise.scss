@@ -1,0 +1,65 @@
+$site-green: #2DBE60;
+
+body {
+  background-color: #ECF0F1 !important;
+	font-family: 'Montserrat', sans-serif !important;
+  font-weight: 400 !important;
+}
+
+.heading {
+  color: $site-green;
+  font-weight: 200;
+}
+
+.input_form_container {
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 1px 1px 1px #f9f9f9;
+  margin-bottom: 30px;
+  padding: 20px;
+  color: #7f7f7f;
+  font-size: 12px;
+
+  .field {
+    margin-bottom: 10px;
+  }
+}
+
+.btn-custom-red {
+  background-color: $site-green;
+  color: white;
+  width: 100%;
+  border-radius: 0px !important;
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
+
+  &:hover {
+    background-color: #4da04d !important;
+    color: white !important;
+  }
+}
+
+.sign-up-container {
+  color: #7f7f7f;
+  font-size: 10px;
+  text-align: center;
+  
+  a {
+    font-size: 18px;
+    color: $site-green;
+    display: block;
+  }
+
+  a:hover {
+    text-decoration: none;
+    color: #4da04d !important;
+  }
+}
+
+.shared_links {
+  margin-top: 10px;
+
+  a:hover {
+    text-decoration: none;
+  }
+}

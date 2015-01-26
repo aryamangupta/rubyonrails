@@ -18,16 +18,18 @@
             %a{href: "#"} PLASTICS
           %li
             %a{href: "#"} SOLAR
-          %li.smallscreen
-            %a{href: "#"} CART
-          %li.smallscreen
-            %a{href: "#"} LOGIN
       #cartLoginContainer
         #cart
           #circle 0
           #carticontext
             %span.glyphicon.glyphicon-shopping-cart#carticon{:aria=>{:hidden => 'true'}}
             #carttext Cart
-        #login Login
+        #login
+          - if user_signed_in?
+            = current_user.email
+            = link_to "Sign Out", destroy_user_session_path, method: :delete
+          - else
+            = link_to "Login", new_user_session_path
+            = link_to "Sign Up", new_user_registration_path
 
 

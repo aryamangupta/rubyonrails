@@ -1,0 +1,82 @@
+= render 'layouts/flash_alerts'
+.container
+  .row
+    .col-md-12{align: 'center'}
+      %br/
+      = render "devise/shared/logo"
+  .row
+    .col-md-3.col-md-offset-3
+      %h2.sign-up-heading.left Sign up
+    .col-md-3
+      .login-container.right
+        Already have an account?
+        %h2
+          = link_to "Log in", new_session_path(resource_name)
+
+  .row
+    .col-md-6.col-md-offset-3
+      .input_form_container
+        = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+          .error_messages
+            = devise_error_messages!
+
+          .row.field
+            .col-md-6
+              = f.label :first_name
+              %br/
+              = f.text_field :first_name, class: 'form-control'
+            .col-md-6
+              = f.label :last_name
+              %br/
+              = f.text_field :last_name, class: 'form-control'
+
+          .field
+            = f.label :email
+            %br/
+            = f.email_field :email, autofocus: true, class: 'form-control'
+
+          .field
+            = f.label :password
+            - if @validatable
+              %em
+                (#{@minimum_password_length} characters minimum)
+            %br/
+            = f.password_field :password, autocomplete: "off", class: 'form-control'
+
+          .field
+            = f.label :password_confirmation
+            %br/
+            = f.password_field :password_confirmation, autocomplete: "off", class: 'form-control'
+
+          .row.field
+            .col-md-6
+              = f.label :country
+              %br/
+              = f.text_field :country, value: 'India', class: 'form-control'
+            .col-md-6
+              = f.label :state
+              = f.select :state, options_for_select(["Andhra Pradesh", "Assam", "Bihar", "Chandigarh", "Karnataka", "Pune", "Pondicherry"]), {}, { class: 'form-control' }
+
+          .row
+            .col-md-12
+              %h4.sub-heading
+                Add Details about your Company
+              %hr
+
+          .field
+            = f.label :name
+            %br/
+            = f.text_field :name, class: 'form-control'
+          
+          .field
+            = f.label :contact_number
+            %br/
+            .input-group
+              .input-group-addon +91
+              = f.number_field :contact_number, class: 'form-control'
+
+          .actions
+            = f.submit "Sign up", class: 'btn btn-custom-green'
+        .shared_links
+          = render "devise/shared/links"
+

@@ -1,0 +1,14 @@
+// This file sets up the all SCSS files in the strucutre
+// Be sure to add your new SCSS file to main.scss before using it.
+// Remember this follows the cascading strucutre, so the order of import is important.
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+@import "common/globals.scss";
+
+@import "base/companies.scss";
+@import "base/devise.scss";
+@import "base/mainpage.scss";
+@import "base/categories.scss";
+@import "base/products.scss";

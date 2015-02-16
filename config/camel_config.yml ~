@@ -1,0 +1,20 @@
+  
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: your_app_development # name your development app something
+  host: localhost
+  pool: 5
+  username: myusername
+  password: mypassword 	
+  
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: your_app_test
+  host: localhost
+  pool: 5
+  username: myusername
+  password: mypassword 	
+    
+

@@ -1,0 +1,7 @@
+
+<h1>All Quotation</h1>
+
+<%@messages.each do |message| %>
+		<p><%= message %></p>
+<%end%>
+<p><%= link_to "Respond a message",{ controller: "messages", action: "new" } %></p>

@@ -2,6 +2,8 @@
 app_dir = "/home/rails/apps/smartpaddle_app/current"
 shared_dir = "/home/rails/apps/smartpaddle_app/shared"
 
+env = "production"
+
 # Set unicorn options
 worker_processes 2
 preload_app true

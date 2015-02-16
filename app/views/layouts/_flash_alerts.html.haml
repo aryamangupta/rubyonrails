@@ -1,0 +1,20 @@
+.row
+  .alert-container{align: 'center'}
+    - if flash[:error]
+      .alert.alert-danger{role: 'alert'}
+        = flash[:error]
+
+    - if flash[:success]
+      .alert.alert-success{role: 'alert'}
+        = flash[:success]
+
+    - if flash[:notice]
+      .alert.alert-success{role: 'alert'}
+        = flash[:notice]
+
+    - if flash[:alert]
+      .alert.alert-warning{role: 'alert'}
+        = flash[:alert]
+
+:javascript
+  window.setTimeout(function() { $('.alert-container').slideUp(500) }, 5000);

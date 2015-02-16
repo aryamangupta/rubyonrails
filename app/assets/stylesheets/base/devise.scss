@@ -1,0 +1,105 @@
+.heading {
+  font-family: 'Roboto Slab', serif;
+  font-weight: 300;
+  color: $site-green;
+}
+
+.sign-up-heading {
+  font-family: 'Roboto Slab', serif;
+  font-weight: 300;
+  color: $site-green;
+  margin-top: 37px;
+}
+
+.input_form_container {
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 1px 1px 1px #f9f9f9;
+  margin-bottom: 30px;
+  padding: 20px;
+  color: #7f7f7f;
+  font-size: 12px !important;
+
+  .field {
+    margin-bottom: 10px;
+  }
+
+  .sub-heading {
+    margin-top: 35px;
+    margin-bottom: -12px;
+
+    h4 {
+      display: inline;
+    }
+  }
+}
+
+.error_messages {
+  color: #D24D57;
+  font-size: 11px;
+
+  h2 {
+    font-size: 13px;
+    font-weight: bold;
+  }
+}
+
+.btn-custom-green {
+  background-color: $site-green;
+  color: white;
+  width: 100%;
+  border-radius: 3px !important;
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
+
+  &:hover {
+    background-color: $site-click-green !important;
+    color: white !important;
+  }
+}
+
+.login-container {
+  color: #7f7f7f;
+  text-align: right;
+  font-size: 11px;
+  font-family: 'Roboto Slab', serif;
+  margin-top: 32px;
+
+  a {
+    font-size: 18px;
+    color: $site-green;
+    display: block;
+  }
+
+  a:hover {
+    text-decoration: none;
+    color: $site-click-green !important;
+  }
+}
+
+.sign-up-container {
+  color: #7f7f7f;
+  font-size: 11px;
+  text-align: center;
+  font-family: 'Roboto Slab', serif;
+  font-weight: 400;
+  
+  a {
+    font-size: 18px;
+    color: $site-green;
+    display: block;
+  }
+
+  a:hover {
+    text-decoration: none;
+    color: $site-click-green !important;
+  }
+}
+
+.shared_links {
+  margin-top: 10px;
+
+  a:hover {
+    text-decoration: none;
+  }
+}

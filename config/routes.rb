@@ -1,8 +1,22 @@
 Rails.application.routes.draw do
-  get 'mainpage/index'
+  devise_for :users
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
+  resources :messages
+  resources :products do
+    resources :pictures
+  end
+
+  get '/signup' => 'companies#new', as: :new_company
+  resources :companies, except: [:new] do
+    get 'verify', on: :member
+  end
+
+  resources :categories
+  get 'categories/:category_name/subcategories' => 'categories#subcategories'
+  get 'categories/:category_name/:subcategory_name/subsubcategories' => 'categories#subsubcategories'
+  get 'categories/:category_name/:subcategory_name/:subsubcategory_name/formvalues' => 'categories#formvalues'
 
   # You can have the root of your site routed with "root"
   root 'mainpage#index'

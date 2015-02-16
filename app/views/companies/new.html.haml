@@ -1,0 +1,77 @@
+= render 'layouts/flash_alerts'
+.container
+  .row
+    .col-md-12{align: 'center'}
+      %br/
+      = render "devise/shared/logo"
+  .row
+    .col-md-3.col-md-offset-3
+      %h2.sign-up-heading.left Sign up
+    .col-md-3
+      .login-container.right
+        Already have an account?
+        = link_to "Log in", new_session_path(@company.users.first)
+
+  .row
+    .col-md-6.col-md-offset-3
+      .input_form_container
+        = simple_form_for @company, html: { class: 'form-stacked' } do |f|
+          = f.simple_fields_for :users do |user_form|
+            .row.field
+              .col-md-6
+                = user_form.input :first_name, autofocus: true
+              .col-md-6
+                = user_form.input :last_name
+            .field
+              = user_form.input :email
+            .field
+              = user_form.input :password
+            .field
+              = user_form.input :password_confirmation
+          .row
+            .col-md-12
+              %h4.sub-heading
+                Add details about your Company
+              %hr
+          .field
+            = f.input :name, label: 'Company Name'
+          .field
+            = f.input :business_type, collection: (%w(Manufacturing Retail NGO Others)), prompt: "Select Business Type"
+          .row
+            .col-md-12
+              .sub-heading
+                %h4
+                  Company Address
+                %i (Optional)
+              %hr
+          .field
+            = f.input :address
+          .row.field
+            .col-md-6
+              = f.input :city
+            .col-md-6
+              = f.input :pincode
+          .row.field
+            .col-md-6
+              = f.input :state, collection: (%w(Andaman\ &\ Nicobar\ Islands Andhra\ Pradesh Arunachal\ Pradesh Assam Bihar Chandigarh Chhatisgarh Dadra\ &\ Nagar\ Haveli Daman\ &\ Diu Goa Gujrat Haryana Himachal\ Pradesh Jammu\ &\ Kashmir Jharkhand Karnataka Kerela Lakshwadeep Madhya\ Pradesh Maharashtra Manipur Meghalaya Mizoram Nagaland New\ Delhi Odisha Puducherry Punjab Rajasthan Sikkim Tamil\ Nadu Telangana Tripura Uttrakhand Uttar\ Pradesh West\ Bengal)), prompt: "Select State"
+            .col-md-6
+              = f.input :country, selected: 'IN', priority: ['IN', 'CN', 'DE', 'GB', 'US']
+          .field
+            = f.label :contact_number
+            %br/
+            .input-group
+              .input-group-addon +91
+              = f.number_field :contact_number, class: 'form-control'
+
+          .actions
+            = f.button :submit, "Sign Up", class: 'btn btn-custom-green'
+
+          %br/
+          .row.field
+            .col-md-12
+              %p 
+                By clicking on 'Sign Up', you agree to our
+                %a{href: '#'} Terms of Service
+                and
+                %a{href: '#'} Privacy Policy.
+

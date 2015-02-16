@@ -1,0 +1,34 @@
+<h1> Add a new message</h1>
+
+<%= form_for @message do |f| %>
+  <p>
+   <%= f.label :buyer_email_id %>
+   <%= f.text_field :buyer_email_id %>
+  </p>
+	
+  <p>
+   <%= f.label :seller_company_id %>
+   <%= f.number_field :seller_company_id %>
+  </p>
+	<p>
+   <%= f.label :seller_company_name %>
+   <%= f.text_field :seller_company_name %>
+  </p>
+  
+  <p>
+   <%= f.label :product_name %>
+   <%= f.text_field :product_name %>
+
+  </p>
+  <p>
+   <%= f.label :quantity %>
+   <%= f.number_field :quantity %>
+  </p>
+  <p>
+   <%= f.label :Comments %>
+   <%= f.text_field :comments %>
+  </p>
+  <%=f.submit "Add new" %>
+
+<%end %>
+

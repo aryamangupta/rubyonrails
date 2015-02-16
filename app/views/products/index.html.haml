@@ -1,0 +1,43 @@
+= render :partial => "/header"
+
+#Profile.container
+  .row
+    .col-lg-1.removeLeftPadding.removeRightPadding
+      = render :partial => "/sideMenu"
+    .col-lg-11
+      = link_to new_product_path do
+        %button.btn.btn-success#submitbtn{:type=>'button'}
+          %span.glyphicon.glyphicon-plus{:aria=>{:hidden => 'true'}} 
+          Add Product
+      - @products.each do |product|
+        .card
+          .row
+            .col-sm-2
+              =image_tag product.pictures[0].image_url(:thumb_medium).to_s
+            .col-sm-6
+              .row.titleBottomPadding
+                = link_to product.ProductName, product_path(product.id), class: "cardTitle"
+              .row
+                %span.fieldLabel
+                  Price: 
+                %span.fieldValue
+                  = product.QuotedPrice
+              .row
+                %span.fieldLabel
+                  Min Order: 
+                %span.fieldValue
+                  = product.MinimumOrder
+              .row{:style=>"margin-top: 15px"}
+                .col-sm-5
+                  - product.specifications.each_key do |key|
+                    .row
+                      %span.fieldLabel
+                        = "#{key} :"
+                      %span.fieldValue
+                        = product.specifications[key]
+            .col-sm-4
+              #rightLine
+                .row
+
+
+= render :partial =>"/footer"	

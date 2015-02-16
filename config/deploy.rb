@@ -15,18 +15,24 @@ require 'mina/slack'
 set :domain, '54.148.84.141'
 set :deploy_to, '/home/rails/apps/smartpaddle_app'
 set :repository, 'git@bitbucket.org:pranav7/smartpaddle-ruby.git'
-set :branch, 'master' 
 set :user, 'rails'
 set :port, '22'
 set :forward_agent, true
 set :unicorn_pid, "#{deploy_to}/shared/pids/unicorn.pid"
+set :rails_env, 'production'
 
 # For system-wide RVM install.
 # set :rvm_path, '/usr/local/rvm/bin/rvm'
 
+def current_git_branch
+  `git symbolic-ref --short HEAD`.chomp
+end
+
+set :branch, current_git_branch 
+
 # Manually create these paths in shared/ (eg: shared/config/database.yml) in your server.
 # They will be linked in the 'deploy:link_shared_paths' step.
-set :shared_paths, ['config/database.yml', 'log']
+set :shared_paths, ['config/database.yml', 'config/camel_config.yml', 'log']
 
 # Optional settings:
 #   set :port, '30000'     # SSH port number.

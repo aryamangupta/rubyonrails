@@ -1,0 +1,25 @@
+$site-green: #2cbe60; 
+$site-click-green: #2aaf59; 
+$site-red: #e11931;
+$brand-back: #273244;
+$category-grey: #8a8c8e;
+$footer-black: #3d4351;
+$site-blue: #358efb;
+$footer-grey: #7a859e;
+
+body {
+  background-color: #F3F3F3 !important;
+  -webkit-font-smoothing: antialiased !important;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  right: right;
+}
+
+.width_auto {
+  width: auto !important;
+}

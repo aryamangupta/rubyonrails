@@ -1,0 +1,38 @@
+#addCategory.container 
+  %h3 Add Category
+  =form_for :category, url: categories_path do |f|
+    .form-group
+      .row
+        .col-sm-6
+          = f.text_field :Category, class: 'form-control', placeholder: 'Category'
+    .form-group
+      .row
+        .col-sm-6
+          = f.text_field :SubCategory, class: 'form-control', placeholder: 'SubCategory'
+    .form-group
+      .row
+        .col-sm-6
+          = f.text_field :Clasification, class: 'form-control', placeholder: 'Clasification'
+    .form-group
+      #textfields
+        = hidden_field_tag :addtextfieldno,0
+        #fieldstext
+        #addtextField.field
+          %span.glyphicon.glyphicon-plus#addDetail{:aria=>{:hidden => 'true'}}
+          %span Add TextField
+    .form-group
+      #Choicefields
+        = hidden_field_tag :addchoicefieldno,0
+        #fieldsChoice
+        #addChoiceField.field
+          %span.glyphicon.glyphicon-plus#addDetail{:aria=>{:hidden => 'true'}}
+          %span Add ChoiceField
+    .form-group
+      #DropDownfields
+        = hidden_field_tag :adddropdownfieldno,0
+        #fieldsDropDown
+        #addDropField.field
+          %span.glyphicon.glyphicon-plus#addDetail{:aria=>{:hidden => 'true'}}
+          %span Add DropDownField
+    .form-group
+      %button.btn.btn-success#submitbtn{:type=>'submit'} Submit

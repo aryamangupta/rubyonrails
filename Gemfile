@@ -4,6 +4,7 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
 # Use Postgresql as the database for Active Record
+gem 'sqlite3'
 gem 'pg'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
@@ -15,6 +16,17 @@ gem 'coffee-rails', '~> 4.1.0'
 # gem 'therubyracer', platforms: :ruby
 gem 'haml'
 gem 'haml-rails'
+gem 'devise'
+
+#for uploading images
+gem 'carrierwave'
+gem 'rmagick'
+
+gem 'responders'
+
+#Redis
+gem 'redis'
+gem 'redis-objects'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -25,8 +37,14 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
+# Forms
+gem 'simple_form'
+gem 'country_select', github: 'stefanpenner/country_select'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
+
+gem 'fog'
 
 # Use Unicorn as the app server
 gem 'unicorn'
@@ -40,13 +58,23 @@ gem 'mina-slack', require: false
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails'
 
+group :test do
+  gem 'rspec-rails'
+  gem 'shoulda-matchers', require: false
+end
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   # gem 'byebug'
+  gem 'pry'
 
   # Access an IRB console on exception pages or by using <%= console %> in views
   # gem 'web-console', '~> 2.0'
 
+  #database cleaner
+  gem 'database_cleaner'
+
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+  gem 'erb2haml'
 end

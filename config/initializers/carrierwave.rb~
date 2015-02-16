@@ -1,0 +1,20 @@
+CarrierWave.configure do |config|
+  # Configuration for AMAZON S3
+#  config.fog_credentials = {
+ #   :provider               => 'AWS',
+  #  :aws_access_key_id      => APP_CONFIG['aws_s3']['access_key_id'],
+   # :aws_secret_access_key  => APP_CONFIG['aws_s3']['secret_access_key'],
+    #:region                 => APP_CONFIG['aws_s3']['region']
+  #}
+
+  # For testing, upload files to local `tmp` folder.
+  if Rails.env.development? || Rails.env.test?
+    config.storage = :file
+    config.enable_processing = false
+    config.root = "#{Rails.root}/tmp"
+  else
+    config.storage = :fog
+  end
+
+  config.fog_directory  = APP_CONFIG['aws_s3']['bucket_name']
+end

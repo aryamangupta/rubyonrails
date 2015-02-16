@@ -7,7 +7,7 @@
           %span.icon-bar
           %span.icon-bar
           %span.icon-bar
-        %a.navbar-brand{href: "#"} SMARTPADDLE
+        %a.navbar-brand{href: "/"} BIZONGO
       #navbar.navbar-collapse.collapse.in{:aria=>{:expanded => 'true'}}
         %ul.nav.navbar-nav.navbar-left
           %li
@@ -18,16 +18,21 @@
             %a{href: "#"} PLASTICS
           %li
             %a{href: "#"} SOLAR
-          %li.smallscreen
-            %a{href: "#"} CART
-          %li.smallscreen
-            %a{href: "#"} LOGIN
       #cartLoginContainer
         #cart
           #circle 0
           #carticontext
             %span.glyphicon.glyphicon-shopping-cart#carticon{:aria=>{:hidden => 'true'}}
             #carttext Cart
-        #login Login
-
+        #login
+          #navbar.navbar-collapse.collapse.in{:aria=>{:expanded => 'true'}}
+            %ul.nav.navbar-nav.navbar-left
+              - if user_signed_in?
+                %li
+                  = link_to "My Account", products_path
+                %li
+                  = link_to "Sign Out", destroy_user_session_path, method: :delete
+              - else
+                %li
+                  = link_to "Login", new_user_session_path
 

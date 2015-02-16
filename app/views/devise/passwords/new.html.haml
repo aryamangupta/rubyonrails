@@ -1,0 +1,25 @@
+= render 'layouts/flash_alerts'
+.container
+  .row
+    .col-md-12{align: 'center'}
+      %br/
+      = render 'devise/shared/logo'
+  .row
+    .col-md-4.col-md-offset-4
+      %h2.heading{align: 'center'} Forgot your password?
+      %br
+      .input_form_container
+        = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
+          = devise_error_messages!
+          .field
+            = f.label :email
+            %br/
+            = f.email_field :email, autofocus: true, class: 'form-control'
+          .actions
+            = f.submit "Send Instructions", class: 'btn btn-custom-green'
+        .shared_links
+          = render "devise/shared/links"
+
+      .sign-up-container
+        Already have an account?
+        = link_to "Log in", new_session_path(resource_name)

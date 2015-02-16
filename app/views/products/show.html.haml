@@ -1,0 +1,91 @@
+= render :partial => "/header"
+
+#showProduct.container
+  .row
+    .col-sm-4
+      =image_tag @product.pictures[0].image_url(:thumb).to_s
+    .col-sm-6
+      .row
+        .col-sm-12.bottomBorder
+          = @product.ProductName
+      .row
+        .col-sm-4.field.fieldLabel
+          Price:
+        .col-sm-8.field.fieldValue
+          = @product.QuotedPrice
+      .row
+        .col-sm-4.field.fieldLabel
+          Min Quantity:
+        .col-sm-8.field.fieldValue
+          = @product.MinimumOrder
+      .row
+        .col-sm-4.field.fieldLabel
+          Supply Ability:
+        .col-sm-8.field.fieldValue
+          = @product.SupplyAbility
+      .row
+        .col-sm-4.field.fieldLabel
+          Payment Terms:
+        .col-sm-8.field.fieldValue
+          = @product.PaymentTerms
+      .row
+        .col-sm-4.field.fieldLabel
+          Delivery Time:
+        .col-sm-8.field.fieldValue
+          = @product.DeliveryTime
+      .row.btnField
+        .col-sm-4.field
+          %button.btn.btn-success.btn-product
+            %span.glyphicon.glyphicon-file{:aria=>{:hidden => 'true'}} 
+            &nbsp;&nbsp;Request Quotation
+        .col-sm-4.field
+          %button.btn.btn-success.btn-product 
+            %span.glyphicon.glyphicon-inbox{:aria=>{:hidden => 'true'}} 
+            &nbsp;&nbsp;Request Sample
+      .row
+        .col-sm-4.field
+          =link_to "#" do
+            %span.glyphicon.glyphicon-shopping-cart{:aria=>{:hidden => 'true'}}
+            &nbsp;Add to cart
+  .row#detailSection
+    .col-lg-10#bottomCategoryLine.removeLeftPadding
+      .categoryLabel.active#product
+        Product Details
+      .categoryLabel.addLeftMargin#company
+        Company Profile
+  .row#descriptionContent
+    .col-lg-10.removeLeftPadding
+      .fieldTitle Product Specifications
+      -@product.specifications.each_key do |key|
+        .row.removeLeftMargin
+          .col-sm-2.field.fieldLabel
+            = key
+          .col-sm-2.field.fieldValue
+            = @product.specifications[key]
+      .bottomLine
+      .fieldTitle Logistics
+      .row.removeLeftMargin
+        .col-sm-2.field.fieldLabel
+          Packaging Details:
+        .col-sm-5.field.fieldValue
+          = @product.PackagingDetails
+      .row.removeLeftMargin
+        .col-sm-2.field.fieldLabel
+          Delivery Details:
+        .col-sm-5.field.fieldValue
+          = @product.DeliveryTime
+      .bottomLine
+      .fieldTitle Detailed Description
+      .row.removeLeftMargin
+        .col-sm-2.field.fieldLabel
+          Description:
+        .col-sm-5.field.fieldValue
+          = @product.DetailedDesciption
+  .row#descriptionCompanyProfile
+    .col-lg-10.removeLeftPadding
+      .fieldTitle Company Details
+
+
+
+            
+= render :partial =>"/footer"

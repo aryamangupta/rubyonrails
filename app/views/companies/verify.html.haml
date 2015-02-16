@@ -1,0 +1,9 @@
+.row
+  .col-md-6.col-md-offset-3.verify-company-container
+    %h3 Awesome! We are almost ready to have you onboard
+    %p 
+      We have sent a confirmation email to 
+      = @user.email
+      to confirm your account. Please follow the instructions to complete sign up.
+
+    %a.btn.btn-custom-green.width_auto{href: new_session_path(@user)} Login Now

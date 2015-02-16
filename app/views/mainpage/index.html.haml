@@ -7,10 +7,11 @@
         %h2 Connecting Businesses
         #coloredContainer
           .input-group
-            %input.form-control{:type=>'search',:placeholder=>'I am looking for..'}
+            %input.form-control{:type=>'search',:placeholder=>'Search for products & Suppliers'}
             %span.input-group-btn
               %button.btn.btn-search{:type=>'button'}
                 %span.glyphicon.glyphicon-search{:aria=>{:hidden => 'true'}}
-          %button.btn.btn-primary.navbar-btn.btn-register{:type=>'button'} Sign up for free        
+          %a.btn.btn-primary.navbar-btn.btn-register{:type=>'button', href: new_company_path} Sign up for free
+            
 
 = render :partial =>"/footer"

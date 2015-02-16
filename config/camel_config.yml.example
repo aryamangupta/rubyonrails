@@ -1,0 +1,23 @@
+development:
+  smtp_address:
+  smtp_port:
+  smtp_user:
+  smtp_password:
+
+  aws_s3:
+    bucket_name:
+    access_key_id:
+    secret_access_key:
+    region:
+
+test:
+  smtp_address:
+  smtp_port:
+  smtp_user:
+  smtp_password:
+
+production:
+  smtp_address:
+  smtp_port:
+  smtp_user:
+  smtp_password:

@@ -1,0 +1,105 @@
+= render :partial => "/header"
+
+#addProduct.container
+  %h3#ProductTitle Add Product
+  =form_for :product, url: products_path, :html => {:multipart => true} do |f|
+    #categorySection
+      %h4.setionHeadings Select Category
+      .row
+        .col-md-3
+          %ul.box_chooser{:style => "list-style-type:none"}
+            - @category.each do |cat|
+              %li.category_option 
+                = cat
+          = hidden_field_tag :category
+        .col-md-3
+          %ul.box_chooser{:style => "list-style-type:none"}
+            = image_tag("ajax_loading.gif", class: "loading_gif",id: 'subcatLoading')
+            #subcategorybox
+          = hidden_field_tag :subcategory
+        .col-md-3
+          %ul.box_chooser{:style => "list-style-type:none"}
+            = image_tag("ajax_loading.gif", class: "loading_gif",id: 'subsubcatLoading')
+            #subsubcategorybox
+          = hidden_field_tag :subsubcategory
+      .row
+        .col-md-2.col-md-offset-7 
+          %button.btn.btn-success#btnProductBasic{:disabled=>true, :type=>"button",:style=>"margin-top:10px;float:right"} Next Section
+    #productBasicSection{:style=>"display:none"}
+      %h4.setionHeadings Basic Product Information
+      .row
+        .col-lg-3
+          = f.fields_for :pictures do |p|
+            = p.file_field :image, style: 'display:none'
+            #upload.drop-area
+              %span.glyphicon.glyphicon-camera#addPicture{:aria=>{:hidden => 'true'}}
+        .col-lg-3
+          = f.fields_for :pictures do |p|
+            = p.file_field :image1, style: 'display:none'
+            #upload1.drop-area
+              %span.glyphicon.glyphicon-camera#addPicture{:aria=>{:hidden => 'true'}}
+        .col-lg-3
+          = f.fields_for :pictures do |p|
+            = p.file_field :image2, style: 'display:none'
+            #upload2.drop-area
+              %span.glyphicon.glyphicon-camera#addPicture{:aria=>{:hidden => 'true'}}
+      .form-group{:style =>"margin-top:15px"}
+        .row
+          .col-sm-11
+            = f.text_field :ProductName, class: 'form-control', placeholder: 'Product Name'
+          .col-sm-1
+            %span.glyphicon.glyphicon-info-sign.Information#pName{:aria=>{:hidden => 'true'}}
+      .form-group
+        .row
+          .col-sm-11
+            = f.text_field :ProductKeyword, class: 'form-control', placeholder: 'Product Keyword'
+          .col-sm-1
+            %span.glyphicon.glyphicon-info-sign.Information#pKeyword{:aria=>{:hidden => 'true'}}
+      .row
+        .col-md-2.col-md-offset-7 
+          %button.btn.btn-success#btnProductSpec{:type=>"button",:style=>"margin-top:10px;float:right"} Next Section
+    #productSpecSection{:style=>"display:none"}
+      %h4.setionHeadings Product Specifications
+      .form-group
+        = f.text_field :ModelNo, class: 'form-control', placeholder: 'Model Number'
+      .form-group
+        = f.text_field :BrandName, class: 'form-control', placeholder: 'BrandName'
+      .form-group
+        = hidden_field_tag :moredetailsno,0
+      #productSpecFields
+      #moreDetails
+        #fields
+        #addField
+          %span.glyphicon.glyphicon-plus#addDetail{:aria=>{:hidden => 'true'}}
+          %span Add
+      .row
+        .col-md-2.col-md-offset-7 
+          %button.btn.btn-success#btnLogistics{:type=>"button",:style=>"margin-top:10px;float:right"} Next Section
+    #logisticsSection{:style=>"display:none"}
+      %h4.setionHeadings Logitics
+      .form-group
+        = f.text_field :MinimumOrder, class: 'form-control', placeholder: 'Minimum Order Quantity'
+      .form-group
+        = f.text_field :SupplyAbility, class: 'form-control', placeholder: 'SupplyAbility'
+      .form-group
+        = f.text_field :QuotedPrice, class: 'form-control', placeholder: 'Quoted Price per Item/Quantity'
+      .form-group
+        = f.text_area :PaymentTerms, class: 'form-control', placeholder: 'Payment Terms'
+      .form-group
+        = f.text_field :DeliveryTime, class: 'form-control', placeholder: 'Delivery Time'
+      .form-group
+        = f.text_area :PackagingDetails, class: 'form-control', placeholder: 'Packaging Details'
+      .row
+        .col-md-2.col-md-offset-7 
+          %button.btn.btn-success#btnDetailedDesc{:type=>"button",:style=>"margin-top:10px;float:right"} Next Section
+    #detailedDescriptionSection{:style=>"display:none"}
+      %h4.setionHeadings Detailed Description
+      .form-group
+        = f.text_area :DetailedDesciption, class: 'form-control', rows: '5', placeholder: 'Include any specific details about your product here'
+      .form-group
+        %span By Clicking on Submit, I agree to SmartPaddle listing agreement. I have read the agreement and have posted my product conforming to the rules written in the agreemnt. I am also aware that if the listing violates any clause, it can be removed by smartpaddle
+      .form-group
+        %button.btn.btn-success#submitbtn{:type=>'submit'} Submit
+
+
+= render :partial =>"/footer"
